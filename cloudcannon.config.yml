@@ -1,0 +1,67 @@
+paths:
+  static: ''
+  uploads: uploads
+timezone: Asia/Shanghai
+markdown:
+  engine: kramdown
+  options:
+    heading_ids: true
+    gfm: true
+    breaks: false
+    quotes: ‘’“”
+    typographer: true
+    attributes: true
+    attribute_elements:
+      inline: right
+      block: below
+      tr: none
+      td: none
+      li: right-of-prefix
+    treat_indentation_as_code: true
+_snippets_imports:
+  jekyll: true
+collections_config:
+  pages:
+    path: _pages
+    icon: wysiwyg
+  portfolio:
+    path: _portfolio
+    icon: pergola
+  posts:
+    path: _posts
+    icon: event_available
+    create:
+      path: >-
+        [relative_base_path]/{date|year}-{date|month}-{date|day}-{title|slugify}.[ext]
+    _inputs:
+      categories:
+        type: multiselect
+        options:
+          values: collections.posts[*].categories
+          allow_create: true
+      tags:
+        type: multiselect
+        options:
+          values: collections.posts[*].tags
+          allow_create: true
+    add_options:
+      - name: Add Post
+      - name: Add Draft
+        collection: drafts
+  publications:
+    path: _publications
+    icon: functions
+  talks:
+    path: _talks
+    icon: masks
+  source:
+    path: ''
+    icon: package_2
+    disable_url: true
+  data:
+    path: _data
+    icon: data_usage
+    disable_url: true
+    disable_add: true
+    disable_add_folder: true
+    disable_file_actions: true
